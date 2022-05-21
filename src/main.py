@@ -1,15 +1,17 @@
-import uvicorn
 from fastapi import FastAPI
+import uvicorn
 
 from api.api import api_router
+
 
 app = FastAPI()
 
 
 @app.get("/", tags=["Home"])
 async def home():
-    return {"message": "Welcome in the Cisco task."
-                       " To read documentation go to '/docs'"}
+    return {"message": "Welcome in the Cisco task." " To read documentation go to '/docs'"}
+
+
 app.include_router(api_router)
 
 if __name__ == "__main__":

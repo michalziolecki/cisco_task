@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
 # from api.entrypoints import home
-from api.entrypoints import diagnostics
-from api.entrypoints import cisco_task
+from api.entrypoints import cisco_task, diagnostics
+
 
 BASE_PREFIX = "/v1"
 
