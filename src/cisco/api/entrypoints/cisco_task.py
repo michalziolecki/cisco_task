@@ -1,14 +1,16 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Body
 
+from src.cisco.api.models.body.cisco import SourceModel
+from src.cisco.api.models.response.cisco import InfoModel, PingModel
 
 router = APIRouter()
 
 
-@router.get("/info")
-async def info():
-    return {"info": "OK"}
+@router.get("/info", response_model=InfoModel, description="Hardcoded status")
+async def info() -> InfoModel:
+    return InfoModel()
 
 
-@router.get("/ping")
-async def ping():
-    return {"ping": "OK"}
+@router.post("/ping", response_model=PingModel, description="Forward payload from indicated url")
+async def ping(source: SourceModel = Body(...)) -> PingModel:
+    return PingModel(payload="")
