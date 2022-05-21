@@ -3,11 +3,10 @@ FROM python:3.10
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
 
-WORKDIR /app/
-COPY poetry.lock /app/
-COPY pyproject.toml /app/
+COPY poetry.lock /
+COPY pyproject.toml /
 RUN poetry install --no-root
-
+WORKDIR /app/
 COPY . /app/
 RUN poetry install
 

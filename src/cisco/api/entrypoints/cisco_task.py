@@ -10,5 +10,5 @@ async def info():
 
 
 @router.get("/ping")
-async def health():
+async def ping():
     return {"ping": "OK"}
