@@ -1,8 +1,8 @@
-from typing import Union, Dict, List, Any
+from typing import Any, Dict, Union
 
-import requests
 from fastapi import HTTPException
-from requests import Response, RequestException
+import requests
+from requests import RequestException, Response
 
 
 def get_request_forward_body(url: str) -> Union[str, Dict[str, Any]]:
@@ -14,7 +14,7 @@ def get_request_forward_body(url: str) -> Union[str, Dict[str, Any]]:
     else:
         if 200 <= response.status_code < 300:
             payload_content = ""
-            if 'application/json' in response.headers.get('Content-Type'):
+            if "application/json" in response.headers.get("Content-Type"):
                 payload_content = response.json()
             else:
                 payload_content = str(response.content)

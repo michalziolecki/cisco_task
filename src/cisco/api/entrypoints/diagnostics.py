@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from src.cisco.api.models.response.health import HealthModel
 
+
 router = APIRouter()
 
 

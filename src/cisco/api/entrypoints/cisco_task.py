@@ -1,9 +1,9 @@
-import requests
 from fastapi import APIRouter, Body
 
 from src.cisco.api.models.body.cisco import SourceModel
 from src.cisco.api.models.response.cisco import InfoModel, PingModel
 from src.cisco.scraper.utils import get_request_forward_body
+
 
 router = APIRouter()
 

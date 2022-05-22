@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from src.cisco.api.models.base import HomeModel
 from src.cisco.api.routing import api_router
 
+
 app = FastAPI()
 
 

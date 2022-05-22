@@ -2,16 +2,19 @@ build:
 	docker build . -t cisco_task
 
 run:
-	docker run -d cisco_task:latest
+	docker run -d -p 8000:8000 cisco_task:latest
 
 run-locally:
 	docker run -v ${PWD}:/app/ -p 8000:8000 cisco_task:latest
 
-start-api:
+start:
 	docker container ls -a -q --filter ancestor=cisco_task | head -1 | xargs docker start
 
-stop-api:
+stop:
 	docker ps -q --filter ancestor=cisco_task | xargs docker stop
 
-terminate-api:
+terminate:
 	docker ps -q --filter ancestor=cisco_task | xargs docker rm -f
+
+static-analysis:
+	docker container run cisco_task:latest bash /app/tests/static_analysis/run_static_analysis.sh

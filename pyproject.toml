@@ -9,6 +9,8 @@ python = "^3.10"
 fastapi = "^0.78.0"
 uvicorn = "^0.17.6"
 pydantic = "^1.9.1"
+requests = "^2.27.1"
+types-requests = "^2.27.27"
 
 [tool.poetry.dev-dependencies]
 ipython = "^8.3.0"
