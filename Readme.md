@@ -5,7 +5,8 @@ This is simple API written in Python 3.10.2 and newest version of Fast API and P
 
 ## Requirements
 - Docker
-- Make
+- make
+- xargs
 
 ## Structure
 - `/src` directory is a part with solution
@@ -25,9 +26,13 @@ To prepare application use `make` command or copy commands from `Makefile`
 - `make stop`
 ### Start stopped container
 - `make start`
-### Clean environment by removing image and container
+### Remove container
 - `make terminate`
+### Clean unused images
+- `make clean`
 
 ## Test run instruction
 ### Static analysis
 - `make static-analysis`
+### Unit-test
+- `make unit-tests`

@@ -16,5 +16,11 @@ stop:
 terminate:
 	docker ps -q --filter ancestor=cisco_task | xargs docker rm -f
 
+clean:
+	docker images -f "dangling=true" -q | xargs docker rmi -f
+
 static-analysis:
 	docker container run cisco_task:latest bash /app/tests/static_analysis/run_static_analysis.sh
+
+unit-tests:
+	docker container run cisco_task:latest pytest tests/unit/ -v
