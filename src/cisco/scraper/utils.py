@@ -13,12 +13,11 @@ def get_request_forward_body(url: str) -> Union[str, Dict[str, Any]]:
         raise HTTPException(status_code=400, detail=f"{url}")
     else:
         if 200 <= response.status_code < 300:
-            payload_content = ""
-            if "application/json" in response.headers.get("Content-Type"):
+            if "application/json" in response.headers.get("Content-Type", []):
                 payload_content = response.json()
             else:
                 payload_content = str(response.content)
-            return payload_content
+            return payload_content or ""
         else:
             # TODO add logging
             raise HTTPException(response.status_code, detail=f"Incorrect status for address: {url}")
