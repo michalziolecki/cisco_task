@@ -36,3 +36,6 @@ To prepare application use `make` command or copy commands from `Makefile`
 - `make static-analysis`
 ### Unit-test
 - `make unit-tests`
+
+## TODO
+- Add logging, dependencies injection with i.e. injector `https://pypi.org/project/injector/`, in order to gather important objects and variables in one place.
